@@ -1,0 +1,106 @@
+/* 屏蔽掉默认的导航*/
+#header{display:none;} 
+
+
+/* 导航栏的样式 */
+#qn_top ul {
+    margin: 0;                          
+    padding: 0;
+    text-align: center; 
+    list-style-type: none; 
+    background-color:rgb(178, 209, 223); 
+    overflow: hidden; 
+}
+#qn_top li {
+    float: center;
+}
+#qn_top li a, .dropbtn {
+    display: inline-block;        
+    color: rgb(95, 216, 156);
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+#qn_top li a:hover, .dropdown:hover .dropbtn { 
+    background-color: rgb(219, 111, 201);    /*鼠标移上去，改变背景颜色*/
+}
+#qn_top .dropdown {
+    display: inline-block;
+}
+#qn_top .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#qn_top .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 8px 10px;
+    text-decoration:none;
+}
+#qntop .dropdown-content a:hover {
+    background-color: rgb(236, 77, 91);
+}
+#qn_top .dropdown:hover .dropdown-content{
+    display: block;
+}
+
+
+/* 博客背景 */
+body { 
+    background-color:rgb(178, 209, 223);
+    background-image:url(); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center 0; 
+    background-size: cover; 
+    padding-top:0px;
+    opacity:0.9; 
+ }
+
+
+/* 公告栏文字信息 */
+.blog{
+    text-align: center;
+    font-size:17px;
+    color:red;
+}
+.wangzhan1{
+    text-align: center;
+    font-size:15px;
+    color:blue;
+}
+.wangzhan2{
+    text-align: center;
+    font-size:15px;
+    color:blue;
+}
+
+
+/* 文章末尾签名css样式 */
+#MySignature {
+    display: none;
+    background-color: #B2E866;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #6B6B6B;
+    padding: 10px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px #FFF;
+    font-size: 16px;
+    font-family: 'Microsoft Yahei';
+}
+
+/*去除广告*/
+div[id^="ad_"] {
+    display: none;
+}
+div[class^="c_ad"] {
+    display: none;
+}
+div[id^="under_post"] {
+    display: none;
+}
+
+

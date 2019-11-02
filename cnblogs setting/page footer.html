@@ -1,0 +1,271 @@
+<!-- 鼠标点击文字特效 -->
+<script type="text/javascript">
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("❤北邮考研狗❤","❤坚持下去哦❤","❤2021北邮见❤","❤来看我文章啊❤","❤点个推荐一下吧❤","❤我是钦念❤","❤");
+            var $i = $("<span></span>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+            y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+        });
+    });
+    </script>
+
+<!-- 点击爆炸效果 -->
+<canvas class="fireworks" style="position: fixed; left: 0px; top: 0px; z-index: 1; pointer-events: none; width: 1440px; height: 451px;" width="2880" height="902"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript">
+"use strict";function updateCoords(e){pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top}function setParticuleDirection(e){var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;return{x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)}}function createParticule(e,t){var a={};return a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=function(){ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()},a}function createCircle(e,t){var a={};return a.x=e,a.y=t,a.color="#F00",a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=function(){ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1},a}function renderParticule(e){for(var t=0;t<e.animatables.length;t++){e.animatables[t].target.draw()}}function animateParticules(e,t){for(var a=createCircle(e,t),n=[],i=0;i<numberOfParticules;i++){n.push(createParticule(e,t))}anime.timeline().add({targets:n,x:function(e){return e.endPos.x},y:function(e){return e.endPos.y},radius:0.1,duration:anime.random(1200,1800),easing:"easeOutExpo",update:renderParticule}).add({targets:a,radius:anime.random(80,160),lineWidth:0,alpha:{value:0,easing:"linear",duration:anime.random(600,800)},duration:anime.random(1200,1800),easing:"easeOutExpo",update:renderParticule,offset:0})}function debounce(e,t){var a;return function(){var n=this,i=arguments;clearTimeout(a),a=setTimeout(function(){e.apply(n,i)},t)}}var canvasEl=document.querySelector(".fireworks");if(canvasEl){var ctx=canvasEl.getContext("2d"),numberOfParticules=30,pointerX=0,pointerY=0,tap="mousedown",colors=["#FF1461","#18FF92","#5A87FF","#FBF38C"],setCanvasSize=debounce(function(){canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+"px",canvasEl.style.height=window.innerHeight+"px",canvasEl.getContext("2d").scale(2,2)},500),render=anime({duration:1/0,update:function(){ctx.clearRect(0,0,canvasEl.width,canvasEl.height)}});document.addEventListener(tap,function(e){"sidebar"!==e.target.id&&"toggle-sidebar"!==e.target.id&&"A"!==e.target.nodeName&&"IMG"!==e.target.nodeName&&(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))},!1),setCanvasSize(),window.addEventListener("resize",setCanvasSize,!1)}"use strict";function updateCoords(e){pointerX=(e.clientX||e.touches[0].clientX)-canvasEl.getBoundingClientRect().left,pointerY=e.clientY||e.touches[0].clientY-canvasEl.getBoundingClientRect().top}function setParticuleDirection(e){var t=anime.random(0,360)*Math.PI/180,a=anime.random(50,180),n=[-1,1][anime.random(0,1)]*a;return{x:e.x+n*Math.cos(t),y:e.y+n*Math.sin(t)}}function createParticule(e,t){var a={};return a.x=e,a.y=t,a.color=colors[anime.random(0,colors.length-1)],a.radius=anime.random(16,32),a.endPos=setParticuleDirection(a),a.draw=function(){ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.fillStyle=a.color,ctx.fill()},a}function createCircle(e,t){var a={};return a.x=e,a.y=t,a.color="#F00",a.radius=0.1,a.alpha=0.5,a.lineWidth=6,a.draw=function(){ctx.globalAlpha=a.alpha,ctx.beginPath(),ctx.arc(a.x,a.y,a.radius,0,2*Math.PI,!0),ctx.lineWidth=a.lineWidth,ctx.strokeStyle=a.color,ctx.stroke(),ctx.globalAlpha=1},a}function renderParticule(e){for(var t=0;t<e.animatables.length;t++){e.animatables[t].target.draw()}}function animateParticules(e,t){for(var a=createCircle(e,t),n=[],i=0;i<numberOfParticules;i++){n.push(createParticule(e,t))}anime.timeline().add({targets:n,x:function(e){return e.endPos.x},y:function(e){return e.endPos.y},radius:0.1,duration:anime.random(1200,1800),easing:"easeOutExpo",update:renderParticule}).add({targets:a,radius:anime.random(80,160),lineWidth:0,alpha:{value:0,easing:"linear",duration:anime.random(600,800)},duration:anime.random(1200,1800),easing:"easeOutExpo",update:renderParticule,offset:0})}function debounce(e,t){var a;return function(){var n=this,i=arguments;clearTimeout(a),a=setTimeout(function(){e.apply(n,i)},t)}}var canvasEl=document.querySelector(".fireworks");if(canvasEl){var ctx=canvasEl.getContext("2d"),numberOfParticules=30,pointerX=0,pointerY=0,tap="mousedown",colors=["#FF1461","#18FF92","#5A87FF","#FBF38C"],setCanvasSize=debounce(function(){canvasEl.width=2*window.innerWidth,canvasEl.height=2*window.innerHeight,canvasEl.style.width=window.innerWidth+"px",canvasEl.style.height=window.innerHeight+"px",canvasEl.getContext("2d").scale(2,2)},500),render=anime({duration:1/0,update:function(){ctx.clearRect(0,0,canvasEl.width,canvasEl.height)}});document.addEventListener(tap,function(e){"sidebar"!==e.target.id&&"toggle-sidebar"!==e.target.id&&"A"!==e.target.nodeName&&"IMG"!==e.target.nodeName&&(render.play(),updateCoords(e),animateParticules(pointerX,pointerY))},!1),setCanvasSize(),window.addEventListener("resize",setCanvasSize,!1)};
+</script>
+
+<!--鼠标跟随效果-->
+<style type="text/css">
+    .draw {
+        position: fixed;
+        width: 1px;
+        line-height: 1px;
+        pointer-events: none;
+    }
+    @keyframes floatOne {
+        0% {
+                    opacity:1;
+        }
+        50% {
+                    opacity:1;
+        }
+        100% {
+                    opacity:0;
+            transform:translate3D(0, -20px, 0) scale(5) rotate(45deg);
+        }
+    }
+</style>
+<script type="text/javascript">
+    var H = 0;
+    $(document).bind('mousemove touchmove',function(e) {
+        e.preventDefault();
+        var drawSize = 10;
+        var drawType = '♡';
+        var floatType = 'floatOne';
+        var xPos = e.originalEvent.pageX;
+        var yPos = e.originalEvent.pageY;
+
+        $('body').append('<div class="draw" style=" font-size:'+drawSize+'px;left:'+xPos+'px;top:'+yPos+'px;-webkit-animation:'+floatType+' .9s 1;-moz-animation:'+floatType+' .9s 1;color:#FF83FA;">'+drawType+'</div>');
+
+        $('.draw').each(function() {
+            var div = $(this);
+            setTimeout(function() {$(div).remove();},800);
+        });
+    });
+</script>
+
+
+<!--雪花飘落效果-->
+<script type="text/javascript">
+    window.onload = function () {
+                 var minSize = 15; //最小字体
+                 var maxSize = 30;//最大字体
+                 var newOne = 600; //生成雪花间隔
+                 var flakColor = "#1bd3ff"; //雪花颜色
+                 var flak = $("<div></div>").css({position:"absolute","top":"0px"}).html("❉");//定义一个雪花
+                 var dhight = $(window).height(); //定义视图高度
+                 var dw =$(window).width()-80; //定义视图宽度
+                 setInterval(function(){
+                 var sizeflak = minSize+Math.random()*maxSize; //产生大小不等的雪花
+                 var startLeft = Math.random()*dw; //雪花生成是随机的left值
+                 var startOpacity = 0.7+Math.random()*0.3; //随机透明度
+                 var endTop= dhight-100; //雪花停止top的位置
+                 var endLeft= Math.random()*dw; //雪花停止的left位置
+                 var durationfull = 5000+Math.random()*3000; //雪花飘落速度不同
+                 flak.clone().appendTo($("body")).css({
+                 "left":startLeft ,
+                 "opacity":startOpacity,
+                 "font-size":sizeflak,
+                 "color":flakColor
+                 }).animate({
+                 "top":endTop,
+                 "left":endLeft,
+                 "apacity":0.1
+                 },durationfull,function(){
+                 $(this).remove()
+                 });
+                 },newOne);
+             }
+  </script>
+
+<!-- 添加看板娘 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Live2D</title>
+
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/qinnian/waifu1.css"/>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="waifu" id="waifu">
+<div class="waifu-tips" style="opacity: 1;"></div>
+<canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+<div class="waifu-tool">
+<span class="fui-home"></span>
+<span class="fui-chat"></span>
+<span class="fui-eye"></span>
+<span class="fui-user"></span>
+<span class="fui-photo"></span>
+<span class="fui-info-circle"></span>
+<span class="fui-cross"></span>
+</div>
+</div>
+<script src="https://blog-static.cnblogs.com/files/qinnian/live2d.min.js"></script>
+<script src="https://blog-static.cnblogs.com/files/qinnian/waifu-tips.js"></script>
+<script type="text/javascript">initModel()</script>
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/qinnian/flat-ui.min.css"/>
+
+
+
+<!-- 添加文章目录 -->
+<script language="javascript" type="text/javascript">
+    //生成目录索引列表
+    function GenerateContentList()
+    {
+        var jquery_h1_list = $('#cnblogs_post_body h1');
+        if (jquery_h1_list.length == 0) { return; }
+        if ($('#cnblogs_post_body').length == 0) { return; }
+    
+        var content = '<a name="_labelTop"></a>';
+        content    += '<div id="navCategory">';
+        content    += '<p style="font-size:18px"><b>阅读目录(Content)</b></p>';
+        // 一级目录 start
+        content += '<ul class="first_class_ul">';
+    
+        for (var i = 0; i < jquery_h1_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部(go to top)</a><a name="_label' + i + '"></a></div>';
+            $(jquery_h1_list[i]).before(go_to_top);
+    
+            // 一级目录的一条
+            var li_content = '<li><a href="#_label' + i + '">' + $(jquery_h1_list[i]).text() + '</a></li>';
+    
+            var nextH1Index = i + 1;
+            if (nextH1Index == jquery_h1_list.length) { nextH1Index = 0; }
+            var jquery_h2_list = $(jquery_h1_list[i]).nextUntil(jquery_h1_list[nextH1Index], "h2");
+            // 二级目录 start
+            if (jquery_h2_list.length > 0)
+            {
+                //li_content +='<ul style="list-style-type:none; text-align: left; margin:2px 2px;">';
+                li_content += '<ul class="second_class_ul">';
+            }
+            for (var j = 0; j < jquery_h2_list.length; j++)
+            {
+                var go_to_top2 = '<div style="text-align: right"><a name="_lab2_'+ i + '_' + j + '"></a></div>';
+                $(jquery_h2_list[j]).before(go_to_top2);
+                // 二级目录的一条
+                li_content +='<li><a href="#_lab2_'+ i +'_' + j + '">' + $(jquery_h2_list[j]).text() + '</a></li>';
+    
+                var nextH2Index = j + 1;
+                var next;
+                if (nextH2Index == jquery_h2_list.length) 
+                {
+                    if (i + 1 == jquery_h1_list.length)
+                    {
+                        next = jquery_h1_list[0];
+                    }
+                    else
+                    {
+                        next = jquery_h1_list[i + 1];
+                    }
+                }
+                else
+                {
+                    next = jquery_h2_list[nextH2Index];
+                }
+                var jquery_h3_list = $(jquery_h2_list[j]).nextUntil(next, "h3");
+                // 三级目录 start
+                if (jquery_h3_list.length > 0)
+                {
+                    li_content += '<ul class="third_class_ul">';
+                }
+                
+                for (var k = 0; k < jquery_h3_list.length; k++)
+                {
+                    var go_to_third_Content = '<div style="text-align: right"><a name="_label3_' + i + '_' + j + '_' + k + '"></a></div>';
+                    $(jquery_h3_list[k]).before(go_to_third_Content);
+                    // 三级目录的一条
+                    li_content += '<li><a href="#_label3_' + i + '_' + j + '_' + k + '">' + $(jquery_h3_list[k]).text() + '</a></li>';
+                }
+                
+                if (jquery_h3_list.length > 0)
+                {
+                    li_content += '</ul>';
+                }
+                li_content += '</li>';
+                // 三级目录 end
+            }
+            if (jquery_h2_list.length > 0)
+            {
+                li_content +='</ul>';
+            }
+            li_content +='</li>';
+            // 二级目录 end
+    
+            content += li_content;
+        }
+        // 一级目录 end
+        content += '</ul>';
+        content += '</div>';
+    
+        $($('#cnblogs_post_body')[0]).prepend(content);
+    }
+    
+    GenerateContentList();
+    </script>
+  
+
+  <script language="javascript" type="text/javascript">
+    //生成目录索引列表
+    function GenerateContentList()
+    {
+        var jquery_h3_list = $('#cnblogs_post_body h3');//如果你的章节标题不是h3,只需要将这里的h3换掉即可
+        if(jquery_h3_list.length>0)
+        {
+            var content = '<a name="_labelTop"></a>';
+            content    += '<div id="navCategory">';
+            content    += '<p style="font-size:18px"><b>阅读目录</b></p>';
+            content    += '<ul>';
+            for(var i =0;i<jquery_h3_list.length;i++)
+            {
+                var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部</a><a name="_label' + i + '"></a></div>';
+                $(jquery_h3_list[i]).before(go_to_top);
+                var li_content = '<li><a href="#_label' + i + '">' + $(jquery_h3_list[i]).text() + '</a></li>';
+                content += li_content;
+            }
+            content    += '</ul>';
+            content    += '</div>';
+            if($('#cnblogs_post_body').length != 0 )
+            {
+                $($('#cnblogs_post_body')[0]).prepend(content);
+            }
+        }    
+    }
+    GenerateContentList();
+    </script>
+
