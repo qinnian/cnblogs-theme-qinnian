@@ -2,7 +2,7 @@
 #header{display:none;} 
 
 
-/* 导航栏的样式 */
+/* 导航栏的样式自定义 */
 #qn_top ul {
     margin: 0;                          
     padding: 0;
@@ -48,7 +48,7 @@
 }
 
 
-/* 博客背景 */
+/* 博客背景自定义 */
 body { 
     background-color:rgb(178, 209, 223);
     background-image:url(); 
@@ -61,7 +61,7 @@ body {
  }
 
 
-/* 公告栏文字信息 */
+/* 公告栏文字样式自定义 */
 .blog{
     text-align: center;
     font-size:17px;
@@ -79,7 +79,7 @@ body {
 }
 
 
-/* 文章末尾签名css样式 */
+/* 文章末尾签名样式自定义 */
 #MySignature {
     display: none;
     background-color: #B2E866;
@@ -92,7 +92,7 @@ body {
     font-family: 'Microsoft Yahei';
 }
 
-/*去除广告*/
+/*去除文章评论下的广告*/
 div[id^="ad_"] {
     display: none;
 }
