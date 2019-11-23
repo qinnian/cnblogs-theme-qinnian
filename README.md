@@ -56,4 +56,4 @@
 
 ## 写在最后
 
-欢迎 `fork` [https://github.com/qinnian/cnblogs-theme](https://github.com/qinnian/cnblogs-theme)
+欢迎 `fork` [https://github.com/qinnian/Cnblogs_Theme](https://github.com/qinnian/Cnblogs_Theme)
